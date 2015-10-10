@@ -1,3 +1,3 @@
 json.array! @bikes do |bike|
-  json.extract! bike, :lat, :lng, :description
+  json.extract! bike, :lat, :lng, :description, :id, :image_url
 end

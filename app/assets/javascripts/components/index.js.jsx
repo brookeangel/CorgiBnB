@@ -14,7 +14,20 @@
     },
 
     render: function() {
-      return <div>{this.state.bikes}</div>
+      return(
+        <div className="bikeIndex">
+          <div className="typeBar">Dates Here</div>
+          <div className="typeBar">Types Here</div>
+          <div className="typeBar">Prices Here</div>
+          <div className="bikes">
+            {this.state.bikes.map(function(bike) {
+              return(
+                <Bike bike={bike} />
+              )
+            })}
+          </div>
+        </div>
+    )
     }
   });
 

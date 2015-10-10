@@ -1,4 +1,101 @@
+html, body, section, article,
+h1, h2, p, strong, em, a {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+  font-family: 'Raleway', sans-serif;
+}
+
+#content {
+  height: 900px;
+}
+
+#nav-bar {
+  width: 100%;
+  border-bottom: #ccc8c8 1px solid;
+  height: 50px;
+  font-family: 'Pacifico', cursive;
+  color: hotpink;
+  font-size: 28px;
+  line-height: 50px;
+  padding-left: 25px;
+}
+
+#nav-bar:hover {
+  color: cornflowerblue;
+}
+
 .map {
-  width: 500px;
-  height: 500px;
+  width: 900px;
+  height: 900px;
+  border-right: #ccc8c8 1px solid;
+  float: left;
+}
+
+.bikeIndex {
+  float: left;
+  width: calc(100% - 910px);
+  height: 700px;
+  /*overflow: scroll;*/
+}
+
+.bikes {
+  margin-top: 20px;
+  padding: 20px;
+  background: #eeeeee;
+  height: 100%;
+  overflow: scroll;
+}
+
+.bikeItem {
+  width: 46%;
+  height: 300px;
+  border: #ccc8c8 1px solid;
+  margin: 15px;
+  float: left;
+  position: relative;
+}
+
+.bikeAttributes {
+  width: 100%;
+  background: rgba(255,255,255,0.7);
+  height: 100px;
+  text-align: center;
+  border-top: #ccc8c8 1px solid;
+  border-bottom: #ccc8c8 1px solid;
+  position: absolute;
+  bottom: 25px;
+  font-size: 18px;
+  line-height: 100px;
+}
+
+.bikeAttributes:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+.bikeAttributes span {
+  vertical-align: middle;
+  line-height: normal;
+  display: inline-block;
+}
+
+.typeBar {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  border-bottom: #ccc8c8 1px solid;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.typeBar:hover {
+  color: hotpink;
 }
