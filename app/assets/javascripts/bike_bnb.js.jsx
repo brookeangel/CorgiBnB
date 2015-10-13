@@ -1,5 +1,6 @@
-$(function() {
+// import createBrowserHistory from 'history/lib/createBrowserHistory';
 
+$(function() {
   var root = document.getElementById('content');
   var Route = ReactRouter.Route;
   var Router = ReactRouter.Router;
@@ -9,7 +10,10 @@ $(function() {
     render: function() {
       return(
         <div>
-          {this.props.children}
+          <Navbar />
+          <div>
+            {this.props.children}
+          </div>
         </div>
       )
     }
@@ -18,6 +22,9 @@ $(function() {
   var routes = (
     <Route path='/' component={App}>
       <IndexRoute component={Search} />
+      <Route path="index" component={Index} />
+      <Route path="show/:id" component={ShowBike} />
+      <Route path="bikes/new" component={BikeForm} />
     </Route>
   );
 

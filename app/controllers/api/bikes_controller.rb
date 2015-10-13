@@ -1,6 +1,6 @@
 class Api::BikesController < ApplicationController
   def index
-    @bikes = Bike.in_bounds(params[:bounds])
+    @bikes = Bike.in_bounds(params[:bounds], params[:humanBounds])
   end
 
   def create
@@ -20,6 +20,6 @@ class Api::BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:lat, :lng, :description)
+    params.require(:bike).permit(:lat, :lng, :description, :people_comfort)
   end
 end

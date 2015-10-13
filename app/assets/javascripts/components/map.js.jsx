@@ -1,6 +1,8 @@
 (function(root) {
 
   root.Map = React.createClass({
+    mixins: [ReactRouter.History],
+
     componentDidMount: function() {
       var map = React.findDOMNode(this.refs.map);
       var mapOptions = {
@@ -11,6 +13,8 @@
       this.map = new google.maps.Map(map, mapOptions);
       this.map.addListener('idle', this._handleIdleEvent);
       BikeStore.addChangeListener(this._adjustMarkers);
+
+      this.map.addListener('click', this.props.handleMapClick);
     },
 
     _handleIdleEvent: function() {
@@ -19,9 +23,13 @@
       var southWest = bounds.getSouthWest();
       var northEastCoords = {lat: northEast["J"], lng: northEast["M"]};
       var southWestCoords = {lat: southWest["J"], lng: southWest["M"]};
-      var boundsObj = {northEast: northEastCoords, southWest: southWestCoords};
-      ApiUtil.fetchBikes(boundsObj);
+      var boundsObj = {bounds: {northEast: northEastCoords, southWest: southWestCoords}};
+      FilterActions.receiveAll(boundsObj);
 
+    },
+
+    _handleMarkerClick: function(id) {
+      this.history.pushState(null, "show/"+id);
     },
 
     _adjustMarkers: function() {
@@ -34,6 +42,7 @@
             map: that.map,
             title: 'Bike'
           });
+          marker.addListener('click', that._handleMarkerClick.bind(that, bike.id));
           that.markers[bike.id] = marker;
         }
       });

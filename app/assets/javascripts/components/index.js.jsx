@@ -17,7 +17,7 @@
       return(
         <div className="bikeIndex">
           <div className="typeBar">Dates Here</div>
-          <div className="typeBar">Types Here</div>
+          <HumansFilter />
           <div className="typeBar">Prices Here</div>
           <div className="bikes">
             {this.state.bikes.map(function(bike) {

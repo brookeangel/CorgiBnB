@@ -17,6 +17,7 @@ SF_COORDS.each do |coord|
     lat: coord[0],
     lng: coord[1],
     description: coord[2],
-    image_url: coord[3]
+    image_url: coord[3],
+    people_comfort: (1..100).to_a.sample
     })
 end
